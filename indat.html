@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Air Quality in India</title>
+    <style>
+        /* Inline CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('cityscape2.jpg'); /* Replace with your background image */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #aqi-value {
+            font-size: 36px;
+            color: #007BFF;
+        }
+        #aqi-description {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Air Quality in India</h1>
+        <p>Current Air Quality Index (AQI): <span id="aqi-value">Loading...</span></p>
+        <p id="aqi-description">Description: <span>Loading...</span></p>
+    </div>
+
+    <script>
+        // Inline JavaScript (simulated data)
+        function getRandomAQI(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function getAQIDescription(aqi) {
+            if (aqi <= 50) {
+                return "Good";
+            } else if (aqi <= 100) {
+                return "Moderate";
+            } else if (aqi <= 150) {
+                return "Unhealthy for Sensitive Groups";
+            } else if (aqi <= 200) {
+                return "Unhealthy";
+            } else {
+                return "Very Unhealthy";
+            }
+        }
+
+        // Simulate data fetching (replace with actual data retrieval)
+        setTimeout(function () {
+            const aqiValue = getRandomAQI(0, 300);
+            const aqiDescription = getAQIDescription(aqiValue);
+            document.getElementById("aqi-value").textContent = aqiValue;
+            document.getElementById("aqi-description").textContent = aqiDescription;
+        }, 2000); // Simulate data update every 2 seconds
+    </script>
+</body>
+</html>
